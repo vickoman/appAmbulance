@@ -11,7 +11,7 @@ interface User {
     styleUrls: ['./own.component.css']
 })
 export class OwnComponent {
-    listUsers: Array<User> = [
+    listUsers: User[] = [
         {
             name: "Victor",
             lastName: "Diaz",
@@ -31,6 +31,16 @@ export class OwnComponent {
             name: "Priscila",
             lastName: "Aviles",
             age: 20
+        },
+        {
+            name: "Camila",
+            lastName: "Diaz",
+            age: 6
+        },
+        {
+            name: "Mathias",
+            lastName: "Diaz",
+            age: 10
         }
     ];
 
