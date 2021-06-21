@@ -10,6 +10,7 @@ export class PageLoginComponent implements OnInit {
   @ViewChild('fieldEmail') fieldEmail: ElementRef | undefined;
   @ViewChild('fieldPassword') fieldPassword: ElementRef | undefined;
   @Output() onLogin: EventEmitter<Partial<User>> = new EventEmitter<Partial<User>>();
+  @Output() onRecovery: EventEmitter<string> = new EventEmitter<string>();
 
   user: Partial<User> = {};
 
@@ -25,6 +26,12 @@ export class PageLoginComponent implements OnInit {
   buttonHandler() {
     const user: Partial<User> = this.getInputsFromUser();
     this.onLogin.emit(user);
+
+  }
+
+  recoveryHandler() {
+    const user: Partial<User> = this.getInputsFromUser();
+    this.onRecovery.emit(user.email);
   }
 
   ngOnInit(): void {}

@@ -13,4 +13,8 @@ export class AppComponent {
   login(user: Partial<User>) {
     console.log(user);
   }
+
+  recoveryPassword(email: string) {
+    console.log(email);
+  }
 }
