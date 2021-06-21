@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Ambulance Management Application';
+  currentDate =  new Date();
 }

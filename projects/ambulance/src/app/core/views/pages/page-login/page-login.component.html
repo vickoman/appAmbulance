@@ -1,0 +1,26 @@
+<!-- <form>
+    <div>
+        <input type="text" 
+            name="email" 
+            id="email" placeholder="Email" (input)="email = $event" />
+    </div>
+    <div>
+        <input type="password" name="password" id="password" placeholder="Password" (input)="password = $event" />
+    </div>
+    <div><button type="button" (click)="buttonHandler()">Login</button></div>
+</form> -->
+
+<form>
+    <div>
+        <input type="text"
+            name="email"
+            id="email"
+            placeholder="Email"
+            #fieldEmail
+            />
+    </div>
+    <div>
+        <input type="password" name="password" id="password" placeholder="Password" #fieldPassword  />
+    </div>
+    <div><button type="button" (click)="buttonHandler()">Login</button></div>
+</form>
