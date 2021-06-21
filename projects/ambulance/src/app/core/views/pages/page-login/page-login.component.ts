@@ -1,11 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { User } from 'projects/ambulance/src/app/users/domain/user.interface';
 
 @Component({
@@ -16,9 +9,7 @@ import { User } from 'projects/ambulance/src/app/users/domain/user.interface';
 export class PageLoginComponent implements OnInit {
   @ViewChild('fieldEmail') fieldEmail: ElementRef | undefined;
   @ViewChild('fieldPassword') fieldPassword: ElementRef | undefined;
-  @Output() onLogin: EventEmitter<Partial<User>> = new EventEmitter<
-    Partial<User>
-  >();
+  @Output() onLogin: EventEmitter<Partial<User>> = new EventEmitter<Partial<User>>();
   @Output() onRecovery: EventEmitter<string> = new EventEmitter<string>();
 
   user: Partial<User> = {};
@@ -26,20 +17,22 @@ export class PageLoginComponent implements OnInit {
   constructor() {}
 
   getInputsFromUser(): Partial<User> {
-    this.user = {
+    const user: User = {
       email: this.fieldEmail?.nativeElement.value,
       password: this.fieldPassword?.nativeElement.value,
     };
-    return this.user;
+    return user;
   }
 
   buttonHandler() {
-    this.onLogin.emit(this.getInputsFromUser());
+    const user: Partial<User> = this.getInputsFromUser();
+    this.onLogin.emit(user);
+
   }
 
   recoveryHandler() {
-    this.getInputsFromUser();
-    this.onRecovery.emit(this.getInputsFromUser().email);
+    const user: Partial<User> = this.getInputsFromUser();
+    this.onRecovery.emit(user.email);
   }
 
   ngOnInit(): void {}
