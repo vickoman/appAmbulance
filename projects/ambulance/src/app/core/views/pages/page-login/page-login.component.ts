@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { User } from 'projects/ambulance/src/app/users/domain/user.interface';
 
 @Component({
@@ -9,6 +9,7 @@ import { User } from 'projects/ambulance/src/app/users/domain/user.interface';
 export class PageLoginComponent implements OnInit {
   @ViewChild('fieldEmail') fieldEmail: ElementRef | undefined;
   @ViewChild('fieldPassword') fieldPassword: ElementRef | undefined;
+  @Output() onLogin: EventEmitter<Partial<User>> = new EventEmitter<Partial<User>>();
 
   user: Partial<User> = {};
 
@@ -22,8 +23,8 @@ export class PageLoginComponent implements OnInit {
   }
 
   buttonHandler() {
-    console.log('Evento handler click');
-    console.log(this.getInputsFromUser());
+    const user: Partial<User> = this.getInputsFromUser();
+    this.onLogin.emit(user);
   }
 
   ngOnInit(): void {}
